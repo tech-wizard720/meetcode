@@ -1,1 +1,1 @@
-Meetcode is a problem solving platform where user can solve coding questions according to various topics and if admin priviledges are one can post question as well. The solutions will run in a dockerized environment in the server.
+Meetcode is a problem solving platform where user can solve coding questions according to various topics and if admin privileges are given one can post question as well. The solutions will run in a dockerized environment in the server.
