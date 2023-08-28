@@ -2,16 +2,15 @@
 
 This monorepo contains both the client and server components of the Code Runner project. The client folder uses Vite React.js for the frontend, while the server folder uses Node.js for the backend. This project allows you to run C++ code in a containerized manner.
 
-#![Screenshot (53)](https://github.com/tech-wizard720/meetcode/assets/73032064/a67e05fa-7869-4c58-b067-b049eb8c6394)
 # Demo
 
-
-![Scr![Screenshot (49)](https://github.com/tech-wizard720/meetcode/assets/73032064/8e8bf56c-6108-4543-9227-d4![Screenshot (48)](https://github.com/tech-wizard720/meetcode/assets/73032064/b87e4b3c-bb41-47dd-99c3-300aabd90912)
-1c6ef1314d)
-eenshot (52)](ht![Screenshot (50)](https://github.com/tech-wizard720/meetcode/assets/73032064/c96a9ed2-97ea-4b4d-987f-8fdd92f6ef6d)
-tps://github.com/tech-wizard720/meetcode/assets/73032064/41e6e672-f69b-4b7b-999c-2637304dfe15)
-
-![Screenshot (51)](https://github.com/tech-wizard720/meetcode/assets/73032064/f2a488e9-e508-4a46-9ea5-bc482ba1ccbd)
+![Screenshot (48)](https://github.com/tech-wizard720/meetcode/assets/73032064/9f1eb885-7b30-4447-b1b0-51eaac93061a)
+![Screenshot (49)](https://github.com/tech-wizard720/meetcode/assets/73032064/60585024-bcc7-4b7a-922b-3db478f39fe4)
+![Screenshot (50)](https://github.com/tech-wizard720/meetcode/assets/73032064/5ecb4a3f-fb10-4de9-8e5e-a7
+![Screenshot (51)](https://github.com/tech-wizard720/meetcode/assets/73032064/5dd58d11-7449-4c7c-ae6b-c15f6e9dde75)
+cb0bc37127)
+![Screenshot (52)](https://github.com/tech-wizard720/meetcode/assets/73032064/93958e96-caaf-4f5e-afd5-5c2933e810bb)
+![Screenshot (53)](https://github.com/tech-wizard720/meetcode/assets/73032064/cf0c6dcb-6010-494c-8caa-d671e9058ca9)
 
 
 ## Prerequisites
