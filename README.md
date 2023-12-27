@@ -1,8 +1,8 @@
-# Meetcode
+## Meetcode
 
 This monorepo contains both the client and server components of the Code Runner project. The client folder uses Vite React.js for the frontend, while the server folder uses Node.js for the backend. This project allows you to run C++ code in a containerized manner.
 
-# Demo
+## Demo
 
 ![Screenshot (48)](https://github.com/tech-wizard720/meetcode/assets/73032064/9f1eb885-7b30-4447-b1b0-51eaac93061a)
 ![Screenshot (49)](https://github.com/tech-wizard720/meetcode/assets/73032064/60585024-bcc7-4b7a-922b-3db478f39fe4)
