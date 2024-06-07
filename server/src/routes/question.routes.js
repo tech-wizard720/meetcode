@@ -1,9 +1,8 @@
 const express = require("express");
-const {
-  getQuestions,
-  addQuestion,
+const { 
   getQuestionsList,
   getQuestion,
+  addQuestion
 } = require("../controllers/question.controllers");
 const authMiddleware = require("../middlewares/auth.middleware");
 const isAdmin = require('../middlewares/isAdmin.middleware');

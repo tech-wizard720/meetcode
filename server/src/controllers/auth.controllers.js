@@ -1,12 +1,12 @@
 const { hash, compare } = require("bcrypt");
-const { USERS } = require("../database/data");
+ // Import the collection from index.js
+
+// Now you can use the `collection` in your code
+const User = require('../model/user.model');
 const jwt = require("jsonwebtoken");
 const { JWT_SECRET_KEY, JWT_OPTIONS } = require("../lib/constants");
-
 const signup = async (req, res, next) => {
   try {
-    // Add logic to decode body
-    // body should have email and password
     const { email, password } = req.body;
     if (!email || !password) {
       const err = new Error("Email and password are required!");
@@ -14,36 +14,35 @@ const signup = async (req, res, next) => {
       throw err;
     }
 
-    //Store email and password (as is for now) in the USERS array above (only if the user with the given email doesnt exist)
-    const userExists = USERS.find((user) => user.email === email);
+    // Check if the user with the given email already exists in the database
+    const userExists = await User.findOne({ email });
     if (userExists) {
       const err = new Error("User with the given email already exists!");
       err.statusCode = 400;
       throw err;
     }
 
+    // Create a new user document using the User model
     const hashedPassword = await hash(password, 10);
-    const id = USERS.length;
-    const payload = { id, email };
-    const token = jwt.sign(payload, JWT_SECRET_KEY, JWT_OPTIONS);
+    const token = jwt.sign({ email }, JWT_SECRET_KEY, JWT_OPTIONS);
+    const newUser = new User({ email, password: hashedPassword,userToken:token });
 
-    USERS.push({ id, email, password: hashedPassword });
-    // return back 200 status code to the client
-    const responseData = {
-      id,
-      email,
-      token,
-    };
+    // Save the new user document to the database
+    await newUser.save();
+
+    // Generate JWT token
+
+    // Respond with success message or user data
+    const responseData = { email, token };
     res.customJson(responseData, "User created successfully!", 200);
   } catch (error) {
     next(error);
   }
 };
 
+
 const login = async (req, res, next) => {
   try {
-    // Add logic to decode body
-    // body should have email and password
     const { email, password } = req.body;
     if (!email || !password) {
       const err = new Error("Email and password are required!");
@@ -51,36 +50,32 @@ const login = async (req, res, next) => {
       throw err;
     }
 
-    // Check if the user with the given email exists in the USERS array
-    const userExists = USERS.find((user) => user.email === email);
-    if (!userExists) {
+    // Find user with the given email in the database
+    const user = await User.findOne({ email });
+    if (!user) {
       const err = new Error("User with the given email does not exist!");
       err.statusCode = 400;
       throw err;
     }
 
-    // Also ensure that the password is the same
-    const isPasswordSame = await compare(password, userExists.password);
-    if (!isPasswordSame) {
+    // Compare passwords
+    const isPasswordValid = await compare(password, user.password);
+    if (!isPasswordValid) {
       const err = new Error("Password is incorrect!");
       err.statusCode = 401;
       throw err;
     }
 
-    // If the password is the same, return back 200 status code to the client
-    // Also send back a token (any random string will do for now)
-    // If the password is not the same, return back 401 status code to the client
-    const payload = { id: userExists.id, email: userExists.email };
-    console.log(payload);
-    const token = jwt.sign(payload, JWT_SECRET_KEY, JWT_OPTIONS);
-    const responseData = {
-      email,
-      token,
-    };
-    res.customJson(responseData, "User Logged In Successfuly", 200);
+    // Generate JWT token
+    const token = jwt.sign({ email }, JWT_SECRET_KEY, JWT_OPTIONS);
+
+    // Respond with success message or user data
+    const responseData = { email: user.email, token };
+    res.customJson(responseData, "User Logged In Successfully", 200);
   } catch (error) {
     next(error);
   }
 };
+
 
 module.exports = { signup, login };

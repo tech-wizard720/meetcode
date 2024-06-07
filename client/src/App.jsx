@@ -4,14 +4,16 @@ import Login from "./pages/Login";
 import Navbar from "./components/Navbar";
 import ProblemSet from "./pages/ProblemSet";
 import Problem from "./pages/Problem";
+import Home from "./pages/Home";
+import Dashboard from "./pages/Dashboard";
 
 function App() {
   return (
     <BrowserRouter>
-      <div className="bg-slate-100 h-screen flex flex-col">
-        <Navbar />
+      <div >
         <Routes>
-          <Route path="/" element={<Signup />} />
+          <Route path="/" element={<Home/>} />
+          <Route path="/me" element={<Dashboard/>} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/login" element={<Login />} />
           <Route path="/problems" element={<ProblemSet />} />

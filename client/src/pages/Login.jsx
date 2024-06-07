@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 import TextInput from "../components/TextInput";
 import Button from "../components/Button";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { SiLeetcode } from "react-icons/si";
 import { post, setTokenCookie } from "../lib/utils";
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-
+  const navigate = useNavigate();
   const emailChange = (e) => {
     setEmail(e.target.value);
   };
@@ -21,6 +21,7 @@ const Login = () => {
     const responseJson = await response.json();
     if (responseJson.success) {
       setTokenCookie(responseJson.data.token, 1);
+      navigate("/me");
     }
     alert(responseJson.message);
   };

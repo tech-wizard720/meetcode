@@ -5,6 +5,7 @@ import { get, getStatusColor, post } from "../lib/utils";
 import ProblemDescription from "../components/ProblemDescription";
 import TabButton from "../components/TabButton";
 import ProblemSubmission from "../components/ProblemSubmission";
+import Navbar from "../components/Navbar";
 
 const Problem = () => {
   const { problemId } = useParams();
@@ -63,6 +64,7 @@ const Problem = () => {
   }, []);
 
   return (
+    
     <div className="grid grid-cols-3 gap-4 m-6 flex-grow overflow-y-auto">
       <div className="bg-white rounded-lg pt-2 flex flex-col overflow-y-auto">
         <div className="flex mb-2">
@@ -117,6 +119,7 @@ const Problem = () => {
             className="rounded-md mr-auto outline-slate-400 focus:outline-slate-800 p-2"
           >
             <option value="cpp">C++</option>
+            <option value="java">java</option>
             {/* <option value="java">Java</option>
             <option value="python">Python</option> */}
           </select>

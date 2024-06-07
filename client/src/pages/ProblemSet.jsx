@@ -3,6 +3,7 @@ import Tag from "../components/Tag.jsx";
 import { AiOutlineLeft, AiOutlineRight } from "react-icons/ai";
 import { get } from "../lib/utils.js";
 import ProblemRow from "../components/ProblemRow.jsx";
+import Navbar from "../components/Navbar.jsx";
 
 const ProblemSet = () => {
   const [problems, setProblems] = useState([]);
@@ -19,6 +20,7 @@ const ProblemSet = () => {
 
   return (
     <div className="bg-white m-12 flex-grow rounded-md overflow-y-scroll">
+      <Navbar/>
       <table className="w-full flex flex-col">
         <thead className="sticky top-0 bg-white">
           <tr className="grid grid-cols-4 px-6 py-2 border-b">

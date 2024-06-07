@@ -13,8 +13,7 @@ const ProblemSubmission = ({ submissions, setCode, setSelectedSubmission }) => {
         <div
           key={index}
           onClick={onClick(submission)}
-          className="p-4 odd:bg-white even:bg-slate-50 hover:bg-slate-100 cursor-pointer flex gap-16 items-center"
-        >
+          className="p-4 odd:bg-white even:bg-slate-50 hover:bg-slate-100 cursor-pointer flex gap-16 items-center">
           <div>
             <h1
               className={`font-bold text-sm ${getStatusColor(
